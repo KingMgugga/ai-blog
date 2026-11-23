@@ -1,0 +1,144 @@
+/* Mobile-first single column. Warm light by default, warm dark via prefers-color-scheme. */
+:root {
+  --bg: #faf7f2;
+  --surface: #f2ece2;
+  --text: #2a251f;
+  --muted: #6f655a;
+  --rule: #e2d9cb;
+  --accent: #a8481f;
+  --code-bg: #efe7da;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1814;
+    --surface: #24201b;
+    --text: #ece5da;
+    --muted: #a99d8e;
+    --rule: #3a332b;
+    --accent: #ec9a6a;
+    --code-bg: #2b261f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-wrap: break-word;
+}
+header.site, main, footer.site {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+header.site {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+header.site .brand { color: var(--text); font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+header.site .rss {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 2px 10px;
+  flex-shrink: 0;
+}
+
+main { padding-top: 8px; padding-bottom: 32px; }
+h1, h2, h3 { line-height: 1.25; letter-spacing: -0.01em; }
+h1 { font-size: 1.85rem; margin: 0.2em 0 0.3em; }
+h2 { font-size: 1.25rem; margin: 1.8em 0 0.6em; }
+h3 { font-size: 1.05rem; margin: 0 0 0.25em; }
+p { margin: 0 0 1em; }
+
+.meta { color: var(--muted); font-size: 0.85rem; margin: 1.6em 0 0; }
+.dek { font-size: 1.12rem; color: var(--muted); margin-bottom: 1.4em; }
+.intro p { color: var(--muted); margin: 1.4em 0 0.4em; }
+
+ol.items { list-style: none; padding: 0; margin: 0; counter-reset: item; }
+ol.items li { counter-increment: item; position: relative; padding: 0 0 0 2.1em; margin: 0 0 1.3em; }
+ol.items li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.5em;
+  text-align: center;
+}
+ol.items h3 a { color: var(--text); text-decoration-color: var(--accent); }
+ol.items p { margin: 0; color: var(--text); }
+
+aside.technique {
+  margin: 2.2em 0 1em;
+  padding: 18px 18px 6px;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+}
+aside.technique h2 { margin: 0.1em 0 0.5em; }
+.kicker, .try-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.try-label { margin-top: 0.4em; }
+pre {
+  background: var(--code-bg);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 0.5em 0 1em;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+code { font: 0.88rem/1.5 ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace; }
+
+ul.post-list { list-style: none; padding: 0; margin: 0; }
+ul.post-list li { padding: 2px 0 14px; border-bottom: 1px solid var(--rule); }
+ul.post-list h2 { margin: 0.2em 0 0.3em; font-size: 1.2rem; }
+ul.post-list h2 a { color: var(--text); text-decoration: none; }
+ul.post-list h2 a:hover { color: var(--accent); }
+ul.post-list p:not(.meta) { margin: 0; color: var(--muted); }
+
+nav.back { margin-top: 2em; font-size: 0.95rem; }
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  padding-bottom: 36px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+footer.site p { margin: 0 0 0.4em; }
+
+@media (min-width: 720px) {
+  body { font-size: 18px; }
+  h1 { font-size: 2.2rem; }
+  header.site { padding-top: 32px; }
+}

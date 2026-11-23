@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Gug on AI</title>
+<link>https://ai.sliceanalytics.xyz/</link>
+<description>What shipped in AI today, plus one technique to try.</description>
+<language>en</language>
+<atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
+
+</channel>
+</rss>

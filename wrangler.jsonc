@@ -1,0 +1,6 @@
+{
+  "name": "ai-blog",
+  "compatibility_date": "2026-11-10",
+  "assets": { "directory": ".", "not_found_handling": "none" },
+  "routes": [{ "pattern": "ai.sliceanalytics.xyz", "custom_domain": true }]
+}
