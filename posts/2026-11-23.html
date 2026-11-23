@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop transformers, SDK deprecations, and batching cheap · Gug on AI</title>
+<meta name="description" content="A new coding model architecture, a dated Opus 4.5 retirement, and a reminder that non-urgent AI work should go through batch endpoints.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://ai.sliceanalytics.xyz/posts/2026-11-23.html">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gug on AI" href="../feed.xml">
+</head>
+<body>
+<header class="site">
+<a class="brand" href="../index.html">Gug on AI</a>
+<a class="rss" href="../feed.xml">RSS</a>
+</header>
+<main>
+<article>
+<p class="meta"><time datetime="2026-11-23">Nov 23, 2026</time> · Daily</p>
+<h1>Loop transformers, SDK deprecations, and batching cheap</h1>
+<p class="dek">A new coding model architecture, a dated Opus 4.5 retirement, and a reminder that non-urgent AI work should go through batch endpoints.</p>
+<section>
+<h2>What shipped today</h2>
+<ol class="items">
+<li><h3><a href="https://z.ai/blog/glm-5.4">GLM-5.4: Toward generalized coding with our first loop transformer</a></h3><p>GLM-5.4 is billed as a first loop transformer aimed at generalized coding, and it drew a lot of attention on Hacker News. If you pick coding models for your tools, it&#39;s worth watching how this architecture holds up on your own tasks.</p></li>
+<li><h3><a href="https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v1.13.0">sdk-v1.13.0</a></h3><p>Anthropic TypeScript SDK 1.13.0 adds batch error codes and Admin API external storage, and marks Claude Opus 4.5 deprecated with end-of-life on Jan 22, 2027. If you depend on that model, put the migration on your calendar now.</p></li>
+<li><h3><a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">claude-code 2.1.331</a></h3><p>Claude Code 2.1.331 adds Code Mode in terminal sessions on Bedrock, Google Cloud, Foundry and AWS, plus a claude doctor API connectivity check. The doctor check is handy for debugging setup problems on cloud-hosted configurations.</p></li>
+<li><h3><a href="https://huggingface.co/blog/agentic-evals">How to build and maintain an agentic evaluation</a></h3><p>Hugging Face published a guide on building and maintaining an agentic evaluation. Agents are hard to judge by eye, so a maintained eval is how you notice regressions when you change prompts or models.</p></li>
+<li><h3><a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/">Finding faster quantum algorithms with agents and formal verification</a></h3><p>DeepMind pairs agent teams with formal verification to find improved quantum algorithms for fusion and chemistry. The useful pattern is having a verifier check what the agents propose rather than trusting their output.</p></li>
+</ol>
+</section>
+<aside class="technique">
+<p class="kicker">Technique of the day</p>
+<h2>Batch API</h2>
+<p>Batch APIs let you submit many requests at once and collect results later instead of waiting on each one in real time. They suit work where nobody is waiting on the answer, such as classifying a backlog, summarizing documents, or running evals. The trade-off is latency for a lower cost per request, so the question to ask is whether a human needs the result right now.</p>
+<p class="try-label">Try it</p>
+<pre><code>Look through your AI calls and list the ones nobody waits on. Then try this prompt on that list:
+
+For each job below, say whether it needs a real-time answer or could run as a batch. Give one line of reasoning each, then rank the batch candidates by call volume.
+
+Move the top candidate to your provider&#39;s batch endpoint and compare the cost.</code></pre>
+</aside>
+</article>
+<nav class="back"><a href="../index.html">← All posts</a></nav>
+</main>
+<footer class="site">
+<p>Written by <a href="https://x.com/0xGug" rel="me">Gug</a> · <a href="https://x.com/0xGug" rel="me">@0xGug on X</a></p><p><a href="../feed.xml">Subscribe via RSS</a> · © 2026</p>
+</footer>
+</body>
+</html>

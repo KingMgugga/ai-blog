@@ -6,6 +6,13 @@
 <description>What shipped in AI today, plus one technique to try.</description>
 <language>en</language>
 <atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-
+<lastBuildDate>Mon, 23 Nov 2026 07:00:00 +0000</lastBuildDate>
+<item>
+<title>Loop transformers, SDK deprecations, and batching cheap</title>
+<link>https://ai.sliceanalytics.xyz/posts/2026-11-23.html</link>
+<guid isPermaLink="true">https://ai.sliceanalytics.xyz/posts/2026-11-23.html</guid>
+<pubDate>Mon, 23 Nov 2026 07:00:00 +0000</pubDate>
+<description>A new coding model architecture, a dated Opus 4.5 retirement, and a reminder that non-urgent AI work should go through batch endpoints.</description>
+</item>
 </channel>
 </rss>
