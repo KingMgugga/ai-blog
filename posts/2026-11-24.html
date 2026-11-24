@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Looped transformers, tiny quantized models, and a plain API call · Gug on AI</title>
+<meta name="description" content="Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04050a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Looped transformers, tiny quantized models, and a plain API call · Gug on AI">
+<meta property="og:description" content="Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.">
+<meta property="og:site_name" content="Gug on AI">
+<meta property="og:url" content="https://ai.sliceanalytics.xyz/posts/2026-11-24.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@0xGug">
+<link rel="canonical" href="https://ai.sliceanalytics.xyz/posts/2026-11-24.html">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/syne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gug on AI" href="../feed.xml">
+</head>
+<body>
+<header class="site">
+<a class="brand" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="-106 -106 212 212"><path fill="#C8172A" d="M0 0L0 -100A100 100 0 0 1 70.71 -70.71Z" transform="translate(0.65 -1.57)"/><path fill="#2193CB" d="M0 0L36.42 -36.42A51.5 51.5 0 0 1 51.5 0Z" transform="translate(1.57 -0.65)"/><path fill="#FFD906" d="M0 0L100 0A100 100 0 0 1 70.71 70.71Z" transform="translate(1.57 0.65)"/><path fill="#77C14B" d="M0 0L36.42 36.42A51.5 51.5 0 0 1 0 51.5Z" transform="translate(0.65 1.57)"/><path fill="#2193CB" d="M0 0L0 100A100 100 0 0 1 -70.71 70.71Z" transform="translate(-0.65 1.57)"/><path fill="#FFD906" d="M0 0L-55.51 55.51A78.5 78.5 0 0 1 -78.5 0Z" transform="translate(-1.57 0.65)"/><path fill="#C8172A" d="M0 0L-78.5 0A78.5 78.5 0 0 1 -55.51 -55.51Z" transform="translate(-1.57 -0.65)"/><path fill="#77C14B" d="M0 0L-70.71 -70.71A100 100 0 0 1 0 -100Z" transform="translate(-0.65 -1.57)"/></svg><span>Gug on AI</span></a>
+<a class="rss" href="../feed.xml">RSS</a>
+</header>
+<main>
+<article>
+<p class="meta"><time datetime="2026-11-24">Nov 24, 2026</time> · Daily</p>
+<h1>Looped transformers, tiny quantized models, and a plain API call</h1>
+<p class="dek">Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.</p>
+<figure class="viz" data-viz="flow">
+<figcaption>Anatomy of a direct API call</figcaption>
+<ol class="viz-flow">
+<li><strong>Build request</strong><span>Choose model, system prompt, and user message in your code.</span></li>
+<li><strong>Send with key</strong><span>Post to the provider API using a key from the environment.</span></li>
+<li><strong>Receive response</strong><span>Get text back along with token usage and a stop reason.</span></li>
+<li><strong>Handle errors</strong><span>Check for rate limits or failures and retry if sensible.</span></li>
+<li><strong>Use the result</strong><span>Parse the output and pass it to the rest of your app.</span></li>
+</ol>
+</figure>
+<section>
+<h2>What shipped today</h2>
+<ol class="items">
+<li><h3><a href="https://z.ai/blog/glm-5.4">GLM-5.4: Toward generalized coding with our first loop transformer</a></h3><p>GLM-5.4 is described as Zhipu&#39;s first loop transformer, aimed at generalized coding. If you pick coding models for your tools, it&#39;s worth watching how looped designs perform in practice.</p></li>
+<li><h3><a href="https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF">NariQ: BF16-level Qwen3.8-27B in a 10 GB file</a></h3><p>NariQ offers 3-bit and lower quantizations of Qwen3.8-27B in about 10 GB, and claims near-BF16 results on several benchmarks. If that holds up, a large model could run on much more modest hardware, but I&#39;d test it on my own tasks first.</p></li>
+<li><h3><a href="https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v1.13.0">sdk-v1.13.0</a></h3><p>Anthropic TypeScript SDK 1.13.0 adds Message Batches error codes and marks Claude Opus 4.5 deprecated, with end of life on Jan 22, 2027. If you call that model directly, put a migration on your calendar.</p></li>
+<li><h3>Can Latent Reasoning Drive LLM Outputs Without a Trace?</h3><p>This study asks whether LLMs can do tasks through latent reasoning with no visible chain-of-thought. It matters because monitoring a model&#39;s written reasoning may not catch everything it does.</p></li>
+<li><h3><a href="https://github.com/openai/codex/releases/tag/rust-v0.172.0">openai/codex 0.172.0</a></h3><p>Codex 0.172.0 adds Tab completion for slash command arguments and optional stdio MCP servers. These are small changes, but they reduce friction in daily agent use.</p></li>
+</ol>
+</section>
+<aside class="technique">
+<p class="kicker">Technique of the day</p>
+<h2>Direct LLM API call</h2>
+<p>A direct LLM API call means sending a request to a model provider from your own code, rather than going through a chat app or agent tool. You control the prompt, the model, the parameters, and what you do with the response. It&#39;s the base layer that most AI features are built on, and it makes the cost, errors, and behavior easy to see.</p>
+<p class="try-label">Try it</p>
+<pre><code>Write a small script that sends one request to a model API. Set the model name, a system prompt, and one user message. Then print the raw response, including the token usage fields. Run it three times with different prompts and compare the usage numbers. Keep your API key in an environment variable, not in the code.</code></pre>
+</aside>
+</article>
+<nav class="back"><a href="../index.html">← All posts</a></nav>
+</main>
+<footer class="site">
+<p>Written by <a href="https://x.com/0xGug" rel="me">Gug</a> · <a href="https://x.com/0xGug" rel="me">@0xGug on X</a></p><p>A notebook from <a href="https://sliceanalytics.xyz/">Slice Analytics</a> · <a href="../feed.xml">RSS</a> · © 2026</p>
+</footer>
+</body>
+</html>

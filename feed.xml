@@ -6,7 +6,14 @@
 <description>What shipped in AI today, plus one technique to try.</description>
 <language>en</language>
 <atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 23 Nov 2026 07:00:00 +0000</lastBuildDate>
+<lastBuildDate>Tue, 24 Nov 2026 07:00:00 +0000</lastBuildDate>
+<item>
+<title>Looped transformers, tiny quantized models, and a plain API call</title>
+<link>https://ai.sliceanalytics.xyz/posts/2026-11-24.html</link>
+<guid isPermaLink="true">https://ai.sliceanalytics.xyz/posts/2026-11-24.html</guid>
+<pubDate>Tue, 24 Nov 2026 07:00:00 +0000</pubDate>
+<description>Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.</description>
+</item>
 <item>
 <title>Loop transformers, SDK deprecations, and batching cheap</title>
 <link>https://ai.sliceanalytics.xyz/posts/2026-11-23.html</link>
