@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills that arrive with your tools, and agents that wait for your OK · Gug on AI</title>
+<meta name="description" content="Claude Code can now pick up skills straight from connected tool servers, and T3 Code adds multi-repo projects plus workflows that pause for approval.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04050a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skills that arrive with your tools, and agents that wait for your OK · Gug on AI">
+<meta property="og:description" content="Claude Code can now pick up skills straight from connected tool servers, and T3 Code adds multi-repo projects plus workflows that pause for approval.">
+<meta property="og:site_name" content="Gug on AI">
+<meta property="og:url" content="https://ai.sliceanalytics.xyz/posts/2026-11-25.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@0xGug">
+<link rel="canonical" href="https://ai.sliceanalytics.xyz/posts/2026-11-25.html">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/syne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gug on AI" href="../feed.xml">
+</head>
+<body>
+<header class="site">
+<a class="brand" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="-106 -106 212 212"><path fill="#C8172A" d="M0 0L0 -100A100 100 0 0 1 70.71 -70.71Z" transform="translate(0.65 -1.57)"/><path fill="#2193CB" d="M0 0L36.42 -36.42A51.5 51.5 0 0 1 51.5 0Z" transform="translate(1.57 -0.65)"/><path fill="#FFD906" d="M0 0L100 0A100 100 0 0 1 70.71 70.71Z" transform="translate(1.57 0.65)"/><path fill="#77C14B" d="M0 0L36.42 36.42A51.5 51.5 0 0 1 0 51.5Z" transform="translate(0.65 1.57)"/><path fill="#2193CB" d="M0 0L0 100A100 100 0 0 1 -70.71 70.71Z" transform="translate(-0.65 1.57)"/><path fill="#FFD906" d="M0 0L-55.51 55.51A78.5 78.5 0 0 1 -78.5 0Z" transform="translate(-1.57 0.65)"/><path fill="#C8172A" d="M0 0L-78.5 0A78.5 78.5 0 0 1 -55.51 -55.51Z" transform="translate(-1.57 -0.65)"/><path fill="#77C14B" d="M0 0L-70.71 -70.71A100 100 0 0 1 0 -100Z" transform="translate(-0.65 -1.57)"/></svg><span>Gug on AI</span></a>
+<a class="rss" href="../feed.xml">RSS</a>
+</header>
+<main>
+<article>
+<p class="meta"><time datetime="2026-11-25">Nov 25, 2026</time> · Daily</p>
+<h1>Skills that arrive with your tools, and agents that wait for your OK</h1>
+<p class="dek">Claude Code can now pick up skills straight from connected tool servers, and T3 Code adds multi-repo projects plus workflows that pause for approval.</p>
+<figure class="viz" data-viz="flow">
+<figcaption>How project notes help an agent</figcaption>
+<ol class="viz-flow">
+<li><strong>You write notes</strong><span>Commands, rules and past decisions in one short file</span></li>
+<li><strong>Agent reads first</strong><span>It loads the notes before touching any code</span></li>
+<li><strong>Agent works</strong><span>Fewer wrong guesses about setup and style</span></li>
+<li><strong>You update notes</strong><span>Add anything you had to explain twice</span></li>
+</ol>
+</figure>
+<section>
+<h2>What matters today</h2>
+<ol class="items">
+<li><h3><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.332">anthropics/claude-code v2.1.332</a></h3>
+<p>Claude Code 2.1.332 adds a beta feature that lets it load skills from MCP servers. MCP, the Model Context Protocol, is a standard way to plug outside tools and data into an AI assistant, and skills are packaged instructions that teach the agent how to do a specific job. The release also adds a new hook event called PreSkillShellCommand. A hook is a small script you set up to run automatically at a set moment, and judging by its name this one fires just before a skill runs a terminal command.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small accounting firm could run one tool server that both connects Claude Code to its bookkeeping system and ships a skill that explains how to reconcile a month correctly. Anyone on the team who connects that server gets the know-how along with the access, with no instruction files to copy around.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you maintain an MCP server, you could bundle a skill alongside it so the agent learns the right way to use your tools, not just that they exist. You could also add a PreSkillShellCommand hook that logs or blocks risky commands before any skill runs them, which is a sensible guardrail before you install skills from servers you did not write. Since this is beta, try it on a test project first.</p></div></li>
+<li><h3><a href="https://github.com/pingdotgg/t3code/releases/tag/v0.1.12">pingdotgg/t3code T3 Code v0.1.12</a></h3>
+<p>T3 Code v0.1.12 lets one project span several code repositories, and each piece of work runs in its own worktree. A worktree is a separate working copy of the code, so parallel agent tasks do not overwrite each other. It also adds beta durable workflows: multi-step jobs that can pause for a human approval and run on a schedule. Threads can now be linked across machines too.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A two-person agency with a separate website repo and mobile app repo could set up one project covering both. A scheduled workflow could have an agent prepare a weekly dependency update in an isolated copy, then stop and wait until someone approves it before anything is merged.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you split an app across a frontend repo and a backend repo, you could manage both as one project and let agents work on them side by side without clashing. You could also try a durable workflow for routine chores like nightly test fixes or weekly cleanups, with an approval step so nothing lands unreviewed. Treat the workflow part as beta and keep it to low-risk jobs at first.</p></div></li>
+</ol>
+</section>
+<section class="worth">
+<h2>Worth knowing</h2>
+<ol class="items">
+<li><h3><a href="https://openai.com/index/introducing-shirudo">OpenAI and Cisco introduce Shirudo</a></h3>
+<p>OpenAI and Cisco released Shirudo, an open-source Linux runtime that helps teams protect running systems while security patches are still being rolled out. Open-source means the code is public and free to use. It targets the risky gap between a known problem and a fix actually being installed everywhere.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A regional online store running a few Linux servers could learn about a serious flaw on a Friday evening but not be able to patch until Monday. A protective layer like this could help cover that weekend window.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you self-host a side project or a small business app on Linux, it could be worth evaluating Shirudo as an extra safety layer between updates. Read its docs to see what it covers before relying on it, and keep patching as quickly as you can.</p></div></li>
+</ol>
+</section>
+<aside class="technique">
+<p class="kicker">Technique of the day</p>
+<h2>Project notes for agents</h2>
+<p>Project notes for agents means keeping a short file in your project that the AI agent reads before it starts any task. It holds the things you would otherwise repeat every session: how to run the app, which folders matter, coding rules, and decisions you have already made. Because the agent reads it first, it makes fewer wrong guesses and you spend less time correcting it. Keep it short and update it whenever you catch yourself explaining the same thing twice.</p>
+<p class="try-label">Try it</p>
+<pre><code>Create a file named CLAUDE.md in your project root with:
+# Project notes
+- Run the app: (your start command)
+- Run tests: (your test command)
+- Never edit: (generated or vendor folders)
+- Style: (one or two rules you care about)
+- Decisions: (one past choice and why)
+Then ask your agent: Read CLAUDE.md and tell me anything that looks unclear.</code></pre>
+</aside>
+</article>
+<nav class="back"><a href="../index.html">← All posts</a></nav>
+</main>
+<footer class="site">
+<p>Written by <a href="https://x.com/0xGug" rel="me">Gug</a> · <a href="https://x.com/0xGug" rel="me">@0xGug on X</a></p><p>A notebook from <a href="https://sliceanalytics.xyz/">Slice Analytics</a> · <a href="../feed.xml">RSS</a> · © 2026</p>
+</footer>
+</body>
+</html>

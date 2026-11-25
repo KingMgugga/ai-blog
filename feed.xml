@@ -6,7 +6,14 @@
 <description>What shipped in AI today, plus one technique to try.</description>
 <language>en</language>
 <atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Tue, 24 Nov 2026 07:00:00 +0000</lastBuildDate>
+<lastBuildDate>Wed, 25 Nov 2026 07:00:00 +0000</lastBuildDate>
+<item>
+<title>Skills that arrive with your tools, and agents that wait for your OK</title>
+<link>https://ai.sliceanalytics.xyz/posts/2026-11-25.html</link>
+<guid isPermaLink="true">https://ai.sliceanalytics.xyz/posts/2026-11-25.html</guid>
+<pubDate>Wed, 25 Nov 2026 07:00:00 +0000</pubDate>
+<description>Claude Code can now pick up skills straight from connected tool servers, and T3 Code adds multi-repo projects plus workflows that pause for approval.</description>
+</item>
 <item>
 <title>Plan your move off Opus 4.5, and a big open model that fits in 10 GB</title>
 <link>https://ai.sliceanalytics.xyz/posts/2026-11-24.html</link>
