@@ -109,6 +109,62 @@ ol.items h3 a { color: var(--text); border-bottom-color: rgba(0, 229, 255, .35);
 ol.items h3 a:hover { border-bottom-color: var(--cyan); }
 ol.items p { margin: 0; color: var(--dim); }
 
+/* ---------- plain-language items: example, use, source image ---------- */
+.item-block {
+  margin: .9em 0 0;
+  padding: 10px 14px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 2px solid rgba(0, 229, 255, .45);
+  border-radius: 10px;
+}
+.item-block p + p { margin-top: .5em; }
+ol.items .item-block .block-label,
+.block-label {
+  margin: 0 0 .3em;
+  color: var(--cyan);
+  font: 600 .72rem/1.4 var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+ol.steps { margin: .3em 0 0; padding: 0 0 0 1.4em; color: var(--dim); counter-reset: none; }
+ol.items ol.steps li { counter-increment: none; padding: 0; margin: .25em 0; }
+ol.items ol.steps li::before { content: none; }
+ol.steps li::marker { color: var(--cyan); font: 600 .85rem var(--mono); }
+figure.src-image {
+  margin: 1em 0 0;
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+figure.src-image a { display: block; border-bottom: 0; }
+figure.src-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+}
+figure.src-image figcaption {
+  padding: 6px 12px;
+  border-top: 1px solid var(--line);
+  color: var(--ghost);
+  font: 500 .7rem/1.4 var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+section.worth h2::before {
+  content: 'Older, still useful';
+  display: block;
+  margin-bottom: .4em;
+  color: var(--cyan);
+  font: 600 .72rem/1.4 var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+section.worth ol.items > li::before { content: '\2605'; }
+
 aside.technique {
   margin: 2.4em 0 1em;
   padding: 20px 20px 8px;

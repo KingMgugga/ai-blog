@@ -8,11 +8,11 @@
 <atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
 <lastBuildDate>Tue, 24 Nov 2026 07:00:00 +0000</lastBuildDate>
 <item>
-<title>Looped transformers, tiny quantized models, and a plain API call</title>
+<title>Plan your move off Opus 4.5, and a big open model that fits in 10 GB</title>
 <link>https://ai.sliceanalytics.xyz/posts/2026-11-24.html</link>
 <guid isPermaLink="true">https://ai.sliceanalytics.xyz/posts/2026-11-24.html</guid>
 <pubDate>Tue, 24 Nov 2026 07:00:00 +0000</pubDate>
-<description>Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.</description>
+<description>One deadline worth putting on your calendar now, and one claim worth testing if you run models on your own machine.</description>
 </item>
 <item>
 <title>Loop transformers, SDK deprecations, and batching cheap</title>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Looped transformers, tiny quantized models, and a plain API call · Gug on AI</title>
-<meta name="description" content="Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.">
+<title>Plan your move off Opus 4.5, and a big open model that fits in 10 GB · Gug on AI</title>
+<meta name="description" content="One deadline worth putting on your calendar now, and one claim worth testing if you run models on your own machine.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#04050a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Looped transformers, tiny quantized models, and a plain API call · Gug on AI">
-<meta property="og:description" content="Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.">
+<meta property="og:title" content="Plan your move off Opus 4.5, and a big open model that fits in 10 GB · Gug on AI">
+<meta property="og:description" content="One deadline worth putting on your calendar now, and one claim worth testing if you run models on your own machine.">
 <meta property="og:site_name" content="Gug on AI">
 <meta property="og:url" content="https://ai.sliceanalytics.xyz/posts/2026-11-24.html">
 <meta name="twitter:card" content="summary">
@@ -29,34 +29,38 @@
 <main>
 <article>
 <p class="meta"><time datetime="2026-11-24">Nov 24, 2026</time> · Daily</p>
-<h1>Looped transformers, tiny quantized models, and a plain API call</h1>
-<p class="dek">Today&#39;s news leans toward models that think in loops and fit in smaller files, plus a few tooling updates worth knowing about.</p>
-<figure class="viz" data-viz="flow">
-<figcaption>Anatomy of a direct API call</figcaption>
-<ol class="viz-flow">
-<li><strong>Build request</strong><span>Choose model, system prompt, and user message in your code.</span></li>
-<li><strong>Send with key</strong><span>Post to the provider API using a key from the environment.</span></li>
-<li><strong>Receive response</strong><span>Get text back along with token usage and a stop reason.</span></li>
-<li><strong>Handle errors</strong><span>Check for rate limits or failures and retry if sensible.</span></li>
-<li><strong>Use the result</strong><span>Parse the output and pass it to the rest of your app.</span></li>
-</ol>
-</figure>
+<h1>Plan your move off Opus 4.5, and a big open model that fits in 10 GB</h1>
+<p class="dek">One deadline worth putting on your calendar now, and one claim worth testing if you run models on your own machine.</p>
+
 <section>
-<h2>What shipped today</h2>
+<h2>What matters today</h2>
 <ol class="items">
-<li><h3><a href="https://z.ai/blog/glm-5.4">GLM-5.4: Toward generalized coding with our first loop transformer</a></h3><p>GLM-5.4 is described as Zhipu&#39;s first loop transformer, aimed at generalized coding. If you pick coding models for your tools, it&#39;s worth watching how looped designs perform in practice.</p></li>
-<li><h3><a href="https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF">NariQ: BF16-level Qwen3.8-27B in a 10 GB file</a></h3><p>NariQ offers 3-bit and lower quantizations of Qwen3.8-27B in about 10 GB, and claims near-BF16 results on several benchmarks. If that holds up, a large model could run on much more modest hardware, but I&#39;d test it on my own tasks first.</p></li>
-<li><h3><a href="https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v1.13.0">sdk-v1.13.0</a></h3><p>Anthropic TypeScript SDK 1.13.0 adds Message Batches error codes and marks Claude Opus 4.5 deprecated, with end of life on Jan 22, 2027. If you call that model directly, put a migration on your calendar.</p></li>
-<li><h3>Can Latent Reasoning Drive LLM Outputs Without a Trace?</h3><p>This study asks whether LLMs can do tasks through latent reasoning with no visible chain-of-thought. It matters because monitoring a model&#39;s written reasoning may not catch everything it does.</p></li>
-<li><h3><a href="https://github.com/openai/codex/releases/tag/rust-v0.172.0">openai/codex 0.172.0</a></h3><p>Codex 0.172.0 adds Tab completion for slash command arguments and optional stdio MCP servers. These are small changes, but they reduce friction in daily agent use.</p></li>
+<li><h3><a href="https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v1.13.0">sdk-v1.13.0</a></h3>
+<p>The latest Anthropic TypeScript SDK, the official library for calling Claude from JavaScript or TypeScript code, marks Claude Opus 4.5 as deprecated. Its end of life is January 22, 2027, which means it will stop being available on that date. If any app, script or scheduled job still asks for that model by name, it will break unless you switch it to a newer one. The same release also adds error codes for Message Batches, the feature for sending many requests at once and collecting the results later, so failed requests are easier to sort out.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small online bookshop could have a nightly job that writes product descriptions using Opus 4.5. If nobody updates the model name, the job could start failing in late January and new listings would go up with empty descriptions.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>Search your projects for the old model name and list every place it appears, including config files and environment settings. Try a newer model on a few real inputs, compare the outputs, then switch over well before the deadline. While you are in there, you could move the model name into one setting so the next change takes one edit.</p></div></li>
+<li><h3><a href="https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF">NariQ: BF16-level Qwen3.8-27B in a 10 GB file</a></h3>
+<p>NariQ offers heavily compressed versions of the open model Qwen3.8-27B that fit in about 10 GB. Compression here, called quantization, means storing each of the model&#39;s numbers with fewer bits, in this case 3 bits or fewer instead of the usual 16. The authors claim results close to the full 16-bit version (called BF16) on agent tasks, math, multiple languages and image understanding. If that holds up, a fairly large model could run on an ordinary gaming graphics card or a well-equipped laptop.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small physiotherapy clinic that cannot send patient notes to an outside service could run a model like this on one office computer to draft visit summaries, keeping everything on site.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you have wanted a local model for private data or to avoid per-request costs, this is worth a test. Download it, run it through a local model runner, and give it 20 or so real tasks from your own app next to the hosted model you use now. The near-full-quality claim is the authors&#39; own, so judge it on your own work before you rely on it.</p></div></li>
 </ol>
 </section>
+
 <aside class="technique">
 <p class="kicker">Technique of the day</p>
 <h2>Direct LLM API call</h2>
-<p>A direct LLM API call means sending a request to a model provider from your own code, rather than going through a chat app or agent tool. You control the prompt, the model, the parameters, and what you do with the response. It&#39;s the base layer that most AI features are built on, and it makes the cost, errors, and behavior easy to see.</p>
+<p>A direct API call means your own code sends a message to a model over the internet and gets the reply back as data, with no chat window involved. You send your text, the model name and a few settings, and you receive the answer in a structured format your program can read. This is the building block behind most AI features in apps, from summarizing emails to sorting support tickets. Once you have made one call by hand, everything else is just doing it in a loop or wiring it to a button.</p>
 <p class="try-label">Try it</p>
-<pre><code>Write a small script that sends one request to a model API. Set the model name, a system prompt, and one user message. Then print the raw response, including the token usage fields. Run it three times with different prompts and compare the usage numbers. Keep your API key in an environment variable, not in the code.</code></pre>
+<pre><code>Make one raw call from your terminal (bash). Set ANTHROPIC_API_KEY first and replace MODEL_NAME with a current model:
+curl https://api.anthropic.com/v1/messages \
+  -H &quot;x-api-key: $ANTHROPIC_API_KEY&quot; \
+  -H &quot;anthropic-version: 2023-06-01&quot; \
+  -H &quot;content-type: application/json&quot; \
+  -d &#39;{&quot;model&quot;:&quot;MODEL_NAME&quot;,&quot;max_tokens&quot;:200,&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Give me 3 names for a plant shop.&quot;}]}&#39;</code></pre>
 </aside>
 </article>
 <nav class="back"><a href="../index.html">← All posts</a></nav>
