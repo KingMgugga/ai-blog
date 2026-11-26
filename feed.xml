@@ -6,7 +6,14 @@
 <description>What shipped in AI today, plus one technique to try.</description>
 <language>en</language>
 <atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Wed, 25 Nov 2026 07:00:00 +0000</lastBuildDate>
+<lastBuildDate>Thu, 26 Nov 2026 07:00:00 +0000</lastBuildDate>
+<item>
+<title>Skills from plugged-in tools, tighter OpenAI limits, and agents that wait for approval</title>
+<link>https://ai.sliceanalytics.xyz/posts/2026-11-26.html</link>
+<guid isPermaLink="true">https://ai.sliceanalytics.xyz/posts/2026-11-26.html</guid>
+<pubDate>Thu, 26 Nov 2026 07:00:00 +0000</pubDate>
+<description>Today&#39;s Claude Code update lets connected tools bring their own skills, OpenAI reportedly tightens limits, and T3 Code adds scheduled agent workflows with sign-off steps.</description>
+</item>
 <item>
 <title>Skills that arrive with your tools, and agents that wait for your OK</title>
 <link>https://ai.sliceanalytics.xyz/posts/2026-11-25.html</link>

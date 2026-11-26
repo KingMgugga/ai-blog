@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills from plugged-in tools, tighter OpenAI limits, and agents that wait for approval · Gug on AI</title>
+<meta name="description" content="Today&#39;s Claude Code update lets connected tools bring their own skills, OpenAI reportedly tightens limits, and T3 Code adds scheduled agent workflows with sign-off steps.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04050a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skills from plugged-in tools, tighter OpenAI limits, and agents that wait for approval · Gug on AI">
+<meta property="og:description" content="Today&#39;s Claude Code update lets connected tools bring their own skills, OpenAI reportedly tightens limits, and T3 Code adds scheduled agent workflows with sign-off steps.">
+<meta property="og:site_name" content="Gug on AI">
+<meta property="og:url" content="https://ai.sliceanalytics.xyz/posts/2026-11-26.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@0xGug">
+<link rel="canonical" href="https://ai.sliceanalytics.xyz/posts/2026-11-26.html">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/syne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gug on AI" href="../feed.xml">
+</head>
+<body>
+<header class="site">
+<a class="brand" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="-106 -106 212 212"><path fill="#C8172A" d="M0 0L0 -100A100 100 0 0 1 70.71 -70.71Z" transform="translate(0.65 -1.57)"/><path fill="#2193CB" d="M0 0L36.42 -36.42A51.5 51.5 0 0 1 51.5 0Z" transform="translate(1.57 -0.65)"/><path fill="#FFD906" d="M0 0L100 0A100 100 0 0 1 70.71 70.71Z" transform="translate(1.57 0.65)"/><path fill="#77C14B" d="M0 0L36.42 36.42A51.5 51.5 0 0 1 0 51.5Z" transform="translate(0.65 1.57)"/><path fill="#2193CB" d="M0 0L0 100A100 100 0 0 1 -70.71 70.71Z" transform="translate(-0.65 1.57)"/><path fill="#FFD906" d="M0 0L-55.51 55.51A78.5 78.5 0 0 1 -78.5 0Z" transform="translate(-1.57 0.65)"/><path fill="#C8172A" d="M0 0L-78.5 0A78.5 78.5 0 0 1 -55.51 -55.51Z" transform="translate(-1.57 -0.65)"/><path fill="#77C14B" d="M0 0L-70.71 -70.71A100 100 0 0 1 0 -100Z" transform="translate(-0.65 -1.57)"/></svg><span>Gug on AI</span></a>
+<a class="rss" href="../feed.xml">RSS</a>
+</header>
+<main>
+<article>
+<p class="meta"><time datetime="2026-11-26">Nov 26, 2026</time> · Daily</p>
+<h1>Skills from plugged-in tools, tighter OpenAI limits, and agents that wait for approval</h1>
+<p class="dek">Today&#39;s Claude Code update lets connected tools bring their own skills, OpenAI reportedly tightens limits, and T3 Code adds scheduled agent workflows with sign-off steps.</p>
+<figure class="viz" data-viz="flow">
+<figcaption>How verification before completion works</figcaption>
+<ol class="viz-flow">
+<li><strong>Make the change</strong><span>The assistant edits code to finish the task</span></li>
+<li><strong>Run the checks</strong><span>Tests, build or the app itself actually get run</span></li>
+<li><strong>Show real output</strong><span>Paste what happened, not a guess or summary</span></li>
+<li><strong>Fix and repeat</strong><span>Any failure sends it back to try again</span></li>
+<li><strong>Then say done</strong><span>Done is only claimed when evidence shows success</span></li>
+</ol>
+</figure>
+<section>
+<h2>What matters today</h2>
+<ol class="items">
+<li><h3><a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md">claude-code 2.1.332</a></h3>
+<p>Claude Code 2.1.332 can now load skills (saved instructions that teach the assistant a specific job) directly from MCP servers. MCP stands for Model Context Protocol, a standard way to plug outside tools into an AI assistant, and this feature is in beta. The update also adds a hook, a check that runs automatically before an action, which can block shell commands written inline inside skills. It adds new OpenTelemetry events too, which means more usage and activity data you can send to your own monitoring tools.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small accounting firm could connect a tool server that ships its own skill for its invoice system, so the assistant knows the right steps without anyone writing them up. The firm could also use the new hook to stop any skill from quietly running shell commands on staff laptops.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you already run an MCP server for your app or team, you could package your how-to instructions as a skill on that server so everyone who connects gets them. If you install skills from other people, you could set up the PreSkillShellCommand hook to block inline shell commands until you have reviewed them. Teams that track costs or behavior could pipe the new OpenTelemetry events into the dashboard they already use.</p></div></li>
+<li><h3><a href="https://twitter.com/thsottiaux/status/2125784147889393806">OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster</a></h3>
+<p>OpenAI has reportedly tightened usage limits on GPT-6.2. According to the report, people on the Astra tier hit their cap 40% faster and people on the Sol tier hit it 25% faster than before. If your daily work or your app depends on these plans, you may run out partway through the day.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A freelance developer who uses GPT-6.2 for a full day of coding could find they hit the limit by mid-afternoon instead of at the end of the day, and lose a few hours of work time.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>Check how close you already get to your cap and plan for less room. You could keep a second model or tool set up as a fallback for when you hit the limit. You could also save the strongest model for hard tasks and send routine jobs, like renaming or writing simple tests, to a cheaper option.</p></div></li>
+<li><h3><a href="https://github.com/pingdotgg/t3code/releases/tag/v0.1.12">pingdotgg/t3code T3 Code v0.1.12</a></h3>
+<p>T3 Code v0.1.12 adds durable agent workflows in beta. These are multi-step jobs that keep going over time and can run on a schedule, and they pause for a human to approve before certain steps. The release also lets one project span several code repositories and links conversation threads across different machines.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A support team&#39;s developer could schedule a nightly workflow that has an agent draft fixes for new bug reports, then waits for a person to approve each one in the morning before anything is merged.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you have chores you repeat by hand, like weekly dependency updates or cleanup across a frontend and a backend repository, you could set them up as a scheduled workflow. Add an approval step before anything risky, so the agent does the busywork and you keep the final say. Linked threads also help if you switch between a desktop and a laptop during the day.</p></div></li>
+</ol>
+</section>
+<section class="worth">
+<h2>Worth knowing</h2>
+<ol class="items">
+<li><h3><a href="https://news.ycombinator.com/item?id=50630809">Ask HN: Anthropic is accusing my company of distilling. How can I prove I&#39;m not?</a></h3>
+<p>One company posted that Anthropic accused it of distillation, which means using a model&#39;s answers to train a competing model. The company says it only runs automated regression benchmarks, which are repeated test runs that check whether quality has slipped. It was asking how to prove its innocence within 24 hours. This is one company&#39;s account, but it is a reminder that heavy, repetitive automated use of an API can look suspicious from the outside.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small team building a chatbot for clinics could run the same few hundred test questions every night to catch quality drops. From the provider&#39;s side, that steady flood of scripted questions could look unusual.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you run automated test suites against an AI provider, keep a short written note of what the tests are for, how often they run and how much traffic they send. Store test results in your own logs so you can show what you did if you are ever asked. Running fewer, smaller test sets also cuts cost.</p></div></li>
+</ol>
+</section>
+<aside class="technique">
+<p class="kicker">Technique of the day</p>
+<h2>Verification before completion</h2>
+<p>Verification before completion means the assistant has to prove a task works before it is allowed to say it is done. You give it a skill, a saved set of instructions, that requires running the tests, the build or the app and showing the actual output. This stops the common problem of an AI cheerfully saying it fixed something that is still broken. It costs a little more time per task and saves a lot of time chasing false claims of done.</p>
+<p class="try-label">Try it</p>
+<pre><code>Create a skill file named verify-before-done with these instructions:
+Before you say a task is complete, you must:
+1. Run the project&#39;s tests and the build command.
+2. Paste the real output, not a summary.
+3. If anything fails, fix it and run again.
+4. Only say done when the output shows success.
+Never claim success without showing evidence.</code></pre>
+</aside>
+</article>
+<nav class="back"><a href="../index.html">← All posts</a></nav>
+</main>
+<footer class="site">
+<p>Written by <a href="https://x.com/0xGug" rel="me">Gug</a> · <a href="https://x.com/0xGug" rel="me">@0xGug on X</a></p><p>A notebook from <a href="https://sliceanalytics.xyz/">Slice Analytics</a> · <a href="../feed.xml">RSS</a> · © 2026</p>
+</footer>
+</body>
+</html>
