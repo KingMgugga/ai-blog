@@ -6,7 +6,14 @@
 <description>What shipped in AI today, plus one technique to try.</description>
 <language>en</language>
 <atom:link href="https://ai.sliceanalytics.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 26 Nov 2026 07:00:00 +0000</lastBuildDate>
+<lastBuildDate>Fri, 27 Nov 2026 07:00:00 +0000</lastBuildDate>
+<item>
+<title>Tighter OpenAI limits, Google&#39;s MCP push, and building your own MCP server</title>
+<link>https://ai.sliceanalytics.xyz/posts/2026-11-27.html</link>
+<guid isPermaLink="true">https://ai.sliceanalytics.xyz/posts/2026-11-27.html</guid>
+<pubDate>Fri, 27 Nov 2026 07:00:00 +0000</pubDate>
+<description>OpenAI reportedly trimmed usage allowances, Google wants agents to use its own MCP servers, and today is a good day to write a small server of your own.</description>
+</item>
 <item>
 <title>Skills from plugged-in tools, tighter OpenAI limits, and agents that wait for approval</title>
 <link>https://ai.sliceanalytics.xyz/posts/2026-11-26.html</link>

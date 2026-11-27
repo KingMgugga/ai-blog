@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tighter OpenAI limits, Google&#39;s MCP push, and building your own MCP server · Gug on AI</title>
+<meta name="description" content="OpenAI reportedly trimmed usage allowances, Google wants agents to use its own MCP servers, and today is a good day to write a small server of your own.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04050a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tighter OpenAI limits, Google&#39;s MCP push, and building your own MCP server · Gug on AI">
+<meta property="og:description" content="OpenAI reportedly trimmed usage allowances, Google wants agents to use its own MCP servers, and today is a good day to write a small server of your own.">
+<meta property="og:site_name" content="Gug on AI">
+<meta property="og:url" content="https://ai.sliceanalytics.xyz/posts/2026-11-27.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@0xGug">
+<link rel="canonical" href="https://ai.sliceanalytics.xyz/posts/2026-11-27.html">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/syne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gug on AI" href="../feed.xml">
+</head>
+<body>
+<header class="site">
+<a class="brand" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="-106 -106 212 212"><path fill="#C8172A" d="M0 0L0 -100A100 100 0 0 1 70.71 -70.71Z" transform="translate(0.65 -1.57)"/><path fill="#2193CB" d="M0 0L36.42 -36.42A51.5 51.5 0 0 1 51.5 0Z" transform="translate(1.57 -0.65)"/><path fill="#FFD906" d="M0 0L100 0A100 100 0 0 1 70.71 70.71Z" transform="translate(1.57 0.65)"/><path fill="#77C14B" d="M0 0L36.42 36.42A51.5 51.5 0 0 1 0 51.5Z" transform="translate(0.65 1.57)"/><path fill="#2193CB" d="M0 0L0 100A100 100 0 0 1 -70.71 70.71Z" transform="translate(-0.65 1.57)"/><path fill="#FFD906" d="M0 0L-55.51 55.51A78.5 78.5 0 0 1 -78.5 0Z" transform="translate(-1.57 0.65)"/><path fill="#C8172A" d="M0 0L-78.5 0A78.5 78.5 0 0 1 -55.51 -55.51Z" transform="translate(-1.57 -0.65)"/><path fill="#77C14B" d="M0 0L-70.71 -70.71A100 100 0 0 1 0 -100Z" transform="translate(-0.65 -1.57)"/></svg><span>Gug on AI</span></a>
+<a class="rss" href="../feed.xml">RSS</a>
+</header>
+<main>
+<article>
+<p class="meta"><time datetime="2026-11-27">Nov 27, 2026</time> · Daily</p>
+<h1>Tighter OpenAI limits, Google&#39;s MCP push, and building your own MCP server</h1>
+<p class="dek">OpenAI reportedly trimmed usage allowances, Google wants agents to use its own MCP servers, and today is a good day to write a small server of your own.</p>
+<figure class="viz" data-viz="flow">
+<figcaption>How to build a small MCP server</figcaption>
+<ol class="viz-flow">
+<li><strong>Pick one task</strong><span>Choose a single action your assistant cannot do yet</span></li>
+<li><strong>Describe the tool</strong><span>Give it a name, short description and inputs</span></li>
+<li><strong>Write the handler</strong><span>Code that actually does the work and returns results</span></li>
+<li><strong>Connect and test</strong><span>Add it to your assistant and try a real request</span></li>
+</ol>
+</figure>
+<section>
+<h2>What matters today</h2>
+<ol class="items">
+<li><h3><a href="https://twitter.com/thsottiaux/status/2125784147889393806">OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster</a></h3>
+<p>OpenAI has reportedly cut how much GPT-6.2 you can use before hitting a limit. Astra plans run out about 40% faster and Sol plans about 25% faster. If your daily work leans on these plans, you may hit a wall sooner than you planned.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A freelance developer who usually codes all afternoon on a Sol plan could find the limit kicks in mid-session, right before a client deadline.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>Check where your workflow depends on a single plan&#39;s allowance and keep a second tool or model ready to switch to. If you build apps on top of it, show clear messages when a limit is hit instead of failing silently. It is also a good moment to trim long prompts and repeated context so each session goes further.</p></div></li>
+<li><h3><a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/">Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can&#39;t Send Email</a></h3>
+<p>Google plans to route AI agents through its own MCP servers. MCP, short for Model Context Protocol, is a standard way to plug tools and data into an AI assistant. Critics point out that Google&#39;s Gmail MCP server currently cannot send email, so check what these official servers actually do before you rely on them.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small support team hoping an agent could draft and send replies from Gmail could find it can read the inbox but has to hand the actual sending back to a person.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>Before building on an official MCP server, list the exact actions your app needs and confirm each one is supported. Where something is missing, plan a human step or a small custom server to fill the gap. Design your agent so a missing action leads to a clear &#39;needs your approval&#39; step rather than a dead end.</p></div></li>
+<li><h3><a href="https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin">Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference</a></h3>
+<p>NVIDIA published open data, fine-tuning recipes and faster inference for Nemotron 3.5 Parse, its model for reading documents. Fine-tuning means training a model a bit more on your own examples so it handles your kind of documents better. Faster inference means it returns answers more quickly.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A clinic that receives scanned intake forms in several layouts could tune a document reader on its own forms so the fields come out in the right place.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If your app turns PDFs, scans or forms into structured data, this gives you an open starting point plus a recipe for adapting it. You could compare it against your current extraction step on a handful of your own messy documents before deciding to switch.</p></div></li>
+</ol>
+</section>
+<section class="worth">
+<h2>Worth knowing</h2>
+<ol class="items">
+<li><h3><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.331">anthropics/claude-code v2.1.331</a></h3>
+<p>Claude Code 2.1.331 added Code Mode in terminal sessions on Bedrock, Google Cloud, Foundry and AWS. It also added connection checks to claude doctor, the built-in command that diagnoses setup problems.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A developer at a company that only allows cloud-hosted models could now use Code Mode through their approved provider, and run claude doctor when requests mysteriously fail.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you reach Claude through a cloud provider, try Code Mode in your terminal sessions. When something stops responding, run claude doctor first to rule out connection problems before debugging your own code.</p></div></li>
+</ol>
+</section>
+<aside class="technique">
+<p class="kicker">Technique of the day</p>
+<h2>MCP authoring</h2>
+<p>An MCP server is a small program that gives an AI assistant new abilities, like looking up orders or adding a calendar event. You describe each ability as a tool with a name, a short description and the inputs it needs, then write the code that does the work. Any MCP-aware assistant can then call those tools. Writing your own is how you fill gaps that official servers leave open.</p>
+<p class="try-label">Try it</p>
+<pre><code>Ask Claude Code:
+&quot;Create a minimal MCP server in TypeScript with one tool, add_note, that takes a title and text and appends them to notes.txt. Include setup steps to connect it to Claude Code, and a quick way to test the tool.&quot;
+Then ask the assistant to add a note and check the file.</code></pre>
+</aside>
+</article>
+<nav class="back"><a href="../index.html">← All posts</a></nav>
+</main>
+<footer class="site">
+<p>Written by <a href="https://x.com/0xGug" rel="me">Gug</a> · <a href="https://x.com/0xGug" rel="me">@0xGug on X</a></p><p>A notebook from <a href="https://sliceanalytics.xyz/">Slice Analytics</a> · <a href="../feed.xml">RSS</a> · © 2026</p>
+</footer>
+</body>
+</html>
