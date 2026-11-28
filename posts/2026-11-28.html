@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A coding app that understands pictures and folders, plus RAG basics · Gug on AI</title>
+<meta name="description" content="A quiet news day, so here is one useful tool update, one older resource for running models at home, and a plain walk through retrieval-augmented generation.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04050a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A coding app that understands pictures and folders, plus RAG basics · Gug on AI">
+<meta property="og:description" content="A quiet news day, so here is one useful tool update, one older resource for running models at home, and a plain walk through retrieval-augmented generation.">
+<meta property="og:site_name" content="Gug on AI">
+<meta property="og:url" content="https://ai.sliceanalytics.xyz/posts/2026-11-28.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@0xGug">
+<link rel="canonical" href="https://ai.sliceanalytics.xyz/posts/2026-11-28.html">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/syne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gug on AI" href="../feed.xml">
+</head>
+<body>
+<header class="site">
+<a class="brand" href="../index.html"><svg class="mark" aria-hidden="true" viewBox="-106 -106 212 212"><path fill="#C8172A" d="M0 0L0 -100A100 100 0 0 1 70.71 -70.71Z" transform="translate(0.65 -1.57)"/><path fill="#2193CB" d="M0 0L36.42 -36.42A51.5 51.5 0 0 1 51.5 0Z" transform="translate(1.57 -0.65)"/><path fill="#FFD906" d="M0 0L100 0A100 100 0 0 1 70.71 70.71Z" transform="translate(1.57 0.65)"/><path fill="#77C14B" d="M0 0L36.42 36.42A51.5 51.5 0 0 1 0 51.5Z" transform="translate(0.65 1.57)"/><path fill="#2193CB" d="M0 0L0 100A100 100 0 0 1 -70.71 70.71Z" transform="translate(-0.65 1.57)"/><path fill="#FFD906" d="M0 0L-55.51 55.51A78.5 78.5 0 0 1 -78.5 0Z" transform="translate(-1.57 0.65)"/><path fill="#C8172A" d="M0 0L-78.5 0A78.5 78.5 0 0 1 -55.51 -55.51Z" transform="translate(-1.57 -0.65)"/><path fill="#77C14B" d="M0 0L-70.71 -70.71A100 100 0 0 1 0 -100Z" transform="translate(-0.65 -1.57)"/></svg><span>Gug on AI</span></a>
+<a class="rss" href="../feed.xml">RSS</a>
+</header>
+<main>
+<article>
+<p class="meta"><time datetime="2026-11-28">Nov 28, 2026</time> · Daily</p>
+<h1>A coding app that understands pictures and folders, plus RAG basics</h1>
+<p class="dek">A quiet news day, so here is one useful tool update, one older resource for running models at home, and a plain walk through retrieval-augmented generation.</p>
+<figure class="viz" data-viz="flow">
+<figcaption>How retrieval-augmented generation works</figcaption>
+<ol class="viz-flow">
+<li><strong>Split documents</strong><span>Break your files into small, readable chunks</span></li>
+<li><strong>Store by meaning</strong><span>Save each chunk in a vector store</span></li>
+<li><strong>Find matches</strong><span>Fetch the chunks closest to the question</span></li>
+<li><strong>Answer from them</strong><span>Model replies using only those chunks</span></li>
+</ol>
+</figure>
+<section>
+<h2>What matters today</h2>
+<ol class="items">
+<li><h3><a href="https://github.com/pingdotgg/t3code/releases/tag/v0.1.14-nightly.20261128.5385">pingdotgg/t3code T3 Code Nightly 0.1.14-nightly.20261128.5385 (0eeb7d10c8f3)</a></h3>
+<p>T3 Code, an app for working with AI coding agents, has a new nightly test build. You can now draw on images you attach, attach whole folders, save files to your own computer, and see how much of your machine&#39;s memory and processor is in use. It also adds task lists for the agent and image diffs, which show before and after versions of an image side by side. Because it is a nightly build, expect rough edges.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A freelancer building a booking page for a hair salon could screenshot the page, circle the broken button, and attach it with the note &quot;make this match the header.&quot; Then they could check the image diff to confirm only that button changed.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>If you often explain layout bugs in long paragraphs, try marking up a screenshot instead. Attaching a whole folder can save you from pasting files one at a time when the agent needs context. The resource monitor helps you notice when an agent run is slowing down your machine. Since this is a test build, try it on a side project before you rely on it for real work.</p></div></li>
+</ol>
+</section>
+<section class="worth">
+<h2>Worth knowing</h2>
+<ol class="items">
+<li><h3><a href="https://huggingface.co/blog/ggml-org/llamacpp-amd-bench">Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon</a></h3>
+<p>The team behind llama.cpp, a popular free tool for running AI models on your own computer, launched a benchmark dashboard. It tracks how fast models run on AMD Ryzen processors and AMD Radeon graphics cards. That makes it easier to judge whether your current hardware is good enough before you spend money or hours on setup.</p>
+<div class="item-block example"><p class="block-label">Real-world example</p>
+<p>A small accounting office that wants to summarize client documents without sending them to an outside service could check the dashboard to see whether their existing AMD desktops can run a local model at a usable speed.</p></div>
+<div class="item-block use"><p class="block-label">How you could use it</p>
+<p>Before you build a feature that runs a model on the user&#39;s own machine, look up similar hardware on the dashboard so you can set realistic expectations. You could also use it to choose a model size that fits the AMD machines your users actually own.</p></div></li>
+</ol>
+</section>
+<aside class="technique">
+<p class="kicker">Technique of the day</p>
+<h2>Retrieval-augmented generation</h2>
+<p>Retrieval-augmented generation, or RAG, means looking up the right documents first and then handing them to the model along with the question. Your documents are split into small chunks, and each chunk is turned into a list of numbers that captures its meaning. These are stored in a vector store, which is a database that finds chunks with similar meaning. When a question comes in, you fetch the closest chunks and tell the model to answer only from them, so it relies on your facts instead of guessing.</p>
+<p class="try-label">Try it</p>
+<pre><code>Paste three to five short documents, such as policies or FAQ entries, into a chat, then send:
+Using only the documents above, answer: [your question].
+Quote the sentence you relied on.
+If the answer is not in the documents, say &quot;not found&quot;.
+Then ask something the documents do not cover and check that it says &quot;not found&quot;.</code></pre>
+</aside>
+</article>
+<nav class="back"><a href="../index.html">← All posts</a></nav>
+</main>
+<footer class="site">
+<p>Written by <a href="https://x.com/0xGug" rel="me">Gug</a> · <a href="https://x.com/0xGug" rel="me">@0xGug on X</a></p><p>A notebook from <a href="https://sliceanalytics.xyz/">Slice Analytics</a> · <a href="../feed.xml">RSS</a> · © 2026</p>
+</footer>
+</body>
+</html>
